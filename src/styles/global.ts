@@ -14,7 +14,7 @@ export const GlobalStyle = createGlobalStyle`
         --color-primary: ;
         --color-secondary: ;
 
-        --color-error: #ff0033;
+        --color-error: #d32f2f;
         --color-success: #4BB543;
         --color-warning: #FFAD32;
         
