@@ -61,6 +61,14 @@ export const GlobalStyle = createGlobalStyle`
         user-select: none;
         pointer-events: none;
     }
+    
+    i {
+        font-style: normal;
+        font-weight: normal !important;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+    }
 
     .shadow {
         position: absolute;
