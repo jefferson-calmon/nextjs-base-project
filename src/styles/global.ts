@@ -7,34 +7,19 @@ export const GlobalStyle = createGlobalStyle`
         outline: none;
         border: none;
         box-sizing: border-box;
-        font-family: 'Work Sans', Helvetica, Arial, sans-serif;
+        font-family: 'Roboto', Helvetica, Arial, sans-serif;
     }
 
     :root {
-        --color-primary-darkest: ;
-        --color-primary-dark: #934515;
-        --color-primary: #D17818;
-        --color-primary-light: #F0C07D;
-        --color-primary-lightest: #FCF0D4;
-
-        --color-secondary-darkest: #07294F;
-        --color-secondary-dark: #145077;
-        --color-secondary: #2B81A2;
-        --color-secondary-light: #7CD8E4;
-        --color-secondary-lightest: #D4FAF9;
-
-        --color-gray-1: #F1F3F5;
-        --color-gray-2: #DEE2E6;
-        --color-gray-3: #ADB5BD;
-        --color-gray-4: #515961;
-        --color-gray-5: #212529;
+        --color-primary: ;
+        --color-secondary: ;
 
         --color-error: #d32f2f;
         --color-success: #4BB543;
         --color-warning: #FFAD32;
-
-        --color-title: var(--color-gray-5);
-        --color-text: var(--color-gray-4);
+        
+        --color-title: ;
+        --color-text: ;
     }
 
     .content {
@@ -58,17 +43,16 @@ export const GlobalStyle = createGlobalStyle`
         background: var(--color-background);
         -webkit-font-smoothing: antialiased;
     }
-
+    
     h1, h2, h3, h4 {
         color: var(--color-title);
-        font-family: 'Poppins', sans-serif;
     }
 
     a {
         text-decoration: none;
         color: inherit;
     }
-
+    
     button {
         cursor: pointer;
     }
@@ -77,7 +61,7 @@ export const GlobalStyle = createGlobalStyle`
         user-select: none;
         pointer-events: none;
     }
-
+    
     i {
         font-style: normal;
         font-weight: normal !important;
@@ -117,7 +101,7 @@ export const GlobalStyle = createGlobalStyle`
             width: 90%;
         }
     }
-
+    
     @media (max-width: 425px) {
         html {
             font-size: 6px;
