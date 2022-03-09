@@ -1,5 +1,8 @@
 import Document, { Head, Html, NextScript, Main, DocumentContext, DocumentInitialProps } from 'next/document';
+
 import { ServerStyleSheet } from 'styled-components';
+
+import { app } from 'config/app';
 
 export default class MyDocument extends Document {
     static async getInitialProps(
@@ -7,13 +10,13 @@ export default class MyDocument extends Document {
       ): Promise<DocumentInitialProps> {
         const sheet = new ServerStyleSheet()
         const originalRenderPage = ctx.renderPage
-    
+
         try {
           ctx.renderPage = () =>
             originalRenderPage({
               enhanceApp: App => props => sheet.collectStyles(<App {...props} />)
             })
-    
+
           const initialProps = await Document.getInitialProps(ctx)
           return {
             ...initialProps,
@@ -34,30 +37,30 @@ export default class MyDocument extends Document {
             <Html>
                 <Head>
                     <meta charSet="utf-8" />
-                    <meta name="theme-color" content="Project theme" />
+                    <meta name="theme-color" content="#ffffff" />
                     <meta
                         name="description"
-                        content="Project description"
+                        content={app.description}
                     />
                     <meta name="robots" content="index, follow" />
                     <meta
                         name="author"
-                        content="Jefferson Calmon - https://jeffersoncalmon.dev"
+                        content={`${app.author.name} - ${app.author.url}`}
                     />
                     <meta
                         name="copyright"
-                        content="Project Copyright - https://Project url"
+                        content={`${app.name} - https://${app.site}`}
                     />
 
                     {/* <!-- Open Graph / Facebook --> */}
                     <meta property="og:type" content="website" />
-                    <meta property="og:url" content="Project url" />
-                    <meta property="og:title" content="Project title" />
+                    <meta property="og:url" content={app.site} />
+                    <meta property="og:title" content={app.name} />
                     <meta
                         property="og:description"
-                        content="Project description"
+                        content={app.description}
                     />
-                    <meta property="og:image" content="assets/open-graph-image.png" />
+                    <meta property="og:image" content="/open-graph-image.png" />
 
                     {/* <!-- Icons --> */}
 					<link
@@ -80,16 +83,16 @@ export default class MyDocument extends Document {
 					<link rel="manifest" href="/site.webmanifest" />
 
                     {/* <!-- Twitter --> */}
-                    <meta property="twitter:card" content="assets/open-graph-image.png" />
-                    <meta property="twitter:url" content="Project url" />
-                    <meta property="twitter:title" content="Project title" />
+                    <meta property="twitter:card" content="/open-graph-image.png" />
+                    <meta property="twitter:url" content={app.site} />
+                    <meta property="twitter:title" content={app.name} />
                     <meta
                         property="twitter:description"
-                        content="Project description"
+                        content={app.description}
                     />
-                    <meta property="twitter:image" content="assets/open-graph-image.png" />
+                    <meta property="twitter:image" content="/open-graph-image.png" />
 
-                    <link rel="canonical" href="https://Project url" />
+                    <link rel="canonical" href={`https://${app.site}/home`} />
 
                     {/* Fonts */}
                     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -104,8 +107,8 @@ export default class MyDocument extends Document {
                 </Head>
 
                 <body>
-                    <Main /> 
-                    <NextScript /> 
+                    <Main />
+                    <NextScript />
                 </body>
             </Html>
         )

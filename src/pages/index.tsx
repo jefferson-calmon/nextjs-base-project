@@ -1,14 +1,7 @@
 import type { NextPage } from 'next';
-import Head from 'next/head';
 
-const Home: NextPage = () => {
-	return (
-		<>
-			<Head>
-				<title>Page Title</title>
-			</Head>
-		</>
-	)
-}
+import Home from '../pages/home';
 
-export default Home
+const Index: NextPage = () => <Home />;
+
+export default Index;

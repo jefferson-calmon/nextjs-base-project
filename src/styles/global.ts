@@ -11,15 +11,29 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     :root {
-        --color-primary: ;
-        --color-secondary: ;
+        --color-primary: ${({ theme }) => theme.colors.primary};
+        --color-secondary: ${({ theme }) => theme.colors.secondary};
 
-        --color-error: #d32f2f;
-        --color-success: #4BB543;
-        --color-warning: #FFAD32;
-        
-        --color-title: ;
-        --color-text: ;
+        --color-surface: ${({ theme }) => theme.colors.surface};
+
+        --color-title: ${({ theme }) => theme.colors.title};
+        --color-text: ${({ theme }) => theme.colors.text};
+
+        --color-background: ${({ theme }) => theme.colors.background};
+
+        --gradient: var(--color-primary), var(--color-secondary);
+
+        --color-error: #e83f5b;
+    }
+
+    ::-webkit-scrollbar {
+        width: 6px;
+        background: transparent;
+        padding-right: 3px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: var(--color-surface);
     }
 
     .content {
@@ -39,20 +53,20 @@ export const GlobalStyle = createGlobalStyle`
     html, body, #root {
         position: relative;
         min-height: 100vh;
-        color: var(--color-text);
-        background: var(--color-background);
+        color: ${({ theme }) => theme.colors.text};
+        background: ${({ theme }) => theme.colors.background};
         -webkit-font-smoothing: antialiased;
     }
-    
-    h1, h2, h3, h4 {
-        color: var(--color-title);
+
+    h1, h2, h3, h4, h5, h6 {
+    color: ${({ theme }) => theme.colors.title};
     }
 
     a {
         text-decoration: none;
         color: inherit;
     }
-    
+
     button {
         cursor: pointer;
     }
@@ -61,7 +75,7 @@ export const GlobalStyle = createGlobalStyle`
         user-select: none;
         pointer-events: none;
     }
-    
+
     i {
         font-style: normal;
         font-weight: normal !important;
@@ -101,7 +115,7 @@ export const GlobalStyle = createGlobalStyle`
             width: 90%;
         }
     }
-    
+
     @media (max-width: 425px) {
         html {
             font-size: 6px;
