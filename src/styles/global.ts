@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-export const GlobalStyle = createGlobalStyle`
+const globalStyle = createGlobalStyle`
     * {
         margin: 0;
         padding: 0;
@@ -122,3 +122,7 @@ export const GlobalStyle = createGlobalStyle`
         }
     }
 `;
+
+export const GlobalStyle = globalStyle as unknown as (
+	props: Record<string, never>
+) => JSX.Element;

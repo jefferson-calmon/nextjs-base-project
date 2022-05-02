@@ -1,4 +1,16 @@
+import {
+	DefaultTheme,
+	ThemeProvider as ThemeProviderComponent,
+	ThemeProviderProps,
+} from 'styled-components';
+
 import { Theme } from 'models/Theme';
+
+export const ThemeProvider = ThemeProviderComponent as unknown as (
+	props: ThemeProviderProps<AnyIfEmpty<DefaultTheme>>
+) => JSX.Element;
+
+type AnyIfEmpty<T extends object> = keyof T extends never ? unknown : T;
 
 export const dark: Theme = {
 	name: 'dark',

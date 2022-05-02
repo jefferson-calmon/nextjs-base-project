@@ -1,10 +1,9 @@
 import type { AppProps } from 'next/app';
-import { ThemeProvider } from 'styled-components';
 import { DefaultSeo } from 'next-seo';
 import { PandoraConfig } from 'pandora-tools';
 
 import { app } from 'config/app';
-import { light } from 'themes';
+import { ThemeProvider, light } from 'theme';
 
 import { GlobalStyle } from '../styles/global';
 
